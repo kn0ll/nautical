@@ -1,0 +1,3 @@
+[submodule "lib/Socket.IO-connect"]
+	path = lib/Socket.IO-connect
+	url = https://github.com/bnoguchi/Socket.IO-connect.git

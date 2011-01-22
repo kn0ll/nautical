@@ -1,5 +1,5 @@
-var Connect = require('./lib/connect/lib/connect'),
-    Jade = require('./lib/jade/lib/jade'),
+var Connect = require('connect'),
+    Jade = require('jade'),
     Socket = require('./lib/Socket.IO-connect/socketIO').socketIO,
     Chuck = require('./lib/chuck');
 
