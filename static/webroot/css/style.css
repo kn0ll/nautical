@@ -2,7 +2,8 @@ body {
     font-size: 12px;
 }
 
-#shred-view {
+#shred-view,
+#open-shred {
     display: none;
 }
 
@@ -44,19 +45,54 @@ body {
                 font: 12px menlo, monospace;
             }
             
-ul.options {
+ul#file-menu {
     list-style: none;
-    margin: 10px 10px 7px;
+    margin: 3px 10px 3px;
     padding: 0;
 }   
 
-    ul.options li {
+    ul#file-menu li {
         float: left;
     }
     
-        ul.options li + li {
-            margin-left: 15px;
+        ul#file-menu li + li {
+            margin-left: 10px;
         }
+        
+        ul#file-menu li a {
+            display: block;
+            width: 32px;
+            height: 32px;
+            text-indent: -9999px;
+        }
+        
+            ul#file-menu li a.create { background-image: url(/webroot/img/menu/create.png); }
+            ul#file-menu li a.open { background-image: url(/webroot/img/menu/open.png); }
+            
+.shred ul.options {
+    list-style: none;
+    margin: 3px 10px 3px;
+    padding: 0;
+}   
+
+    .shred ul.options li {
+        float: left;
+    }
+    
+        .shred ul.options li + li {
+            margin-left: 10px;
+        }
+        
+        .shred ul.options li a {
+            display: block;
+            width: 32px;
+            height: 32px;
+            text-indent: -9999px;
+        }
+        
+            .shred ul.options li a.save { background-image: url(/webroot/img/controls/save.png); }
+            .shred ul.options li a.play { background-image: url(/webroot/img/controls/play.png); }
+            .shred ul.options li a.stop { background-image: url(/webroot/img/controls/stop.png); }
             
 form.file-form {
     background: #ccc;
@@ -77,11 +113,6 @@ form.file-form {
         width: 147px;
     }
     
-    form.file-form input[type="file"] {
-        margin: 10px;
-        width: 250px;
-    }
-  
 .clearfix:after {
 	content: ".";
 	display: block;

@@ -1,6 +1,7 @@
 !!! 5
 html
 
+
   head
 
     title nautical
@@ -8,39 +9,50 @@ html
     link(rel: 'stylesheet', href: '/webroot/css/lib/jquery-ui/ui-lightness/jquery-ui-1.8.8.custom.css', type: 'text/css', media: 'screen, projection')
     link(rel: 'stylesheet', href: '/webroot/css/style.css', type: 'text/css', media: 'screen, projection')
 
+
   body
 
-    ul#menu
+
+    ul#file-menu.clearfix
       li
-        a.create(href: '#') New Shred
+        a.create(href: '#', title: 'New Shred') New Shred
       li
-        a.open(href: '#') Open Shred
+        a.open(href: '#', title: 'Open Shred') Open Shred
+
 
     script#shred-view(type: 'text/template')
-      .shred(title: '{{name}}')
+
+      .shred(title: '{{path}}')
+
         form.file-form.save-shred(title: 'Save Shred')
           label(for: 'path') Location
-          input(type: 'text', name:'path')
+          input(type: 'text', name:'path', value:'{{path}}')
+
         ul.options.clearfix
           li
-            a.save(href: '#') Save
+            a.save(href: '#', title: 'Save Shred') Save Shred
           li
-            a.play(href: '#') Play
+            a.play(href: '#', title: 'Play Shred') Play Shred
           li
-            a.stop(href: '#') Stop
+            a.stop(href: '#', title: 'Stop Shred') Stop Shred
+
         .code
           textarea.content {{content}}
 
-    script#open-shred(type: 'text/template')
-      form.file-form(title: 'Open Shred')
-        input(type: 'file', name:'path')
 
-    script(type: 'text/javascript', src: '/webroot/js/lib/json/json2.js')
+    #open-shred(title: 'Open Shred')
+
+      form.file-form.open-shred(title: 'Open Shred')
+        label Path
+        input(type: 'text', name:'path')
+
+
     script(type: 'text/javascript', src: '/webroot/js/lib/mustache/mustache.js')
     script(type: 'text/javascript', src: '/webroot/js/lib/jquery.js')
     script(type: 'text/javascript', src: '/webroot/js/lib/jquery-ui.js')
     script(type: 'text/javascript', src: '/webroot/js/lib/underscore/underscore.js')
     script(type: 'text/javascript', src: '/webroot/js/lib/backbone/backbone.js')
     script(type: 'text/javascript', src: '/webroot/js/lib/Socket.IO/socket.io.js')
-    script(type: 'text/javascript', src: '/webroot/js/websocket.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/websocket.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/require.js')
     script(type: 'text/javascript', src: '/webroot/js/brain.js')
