@@ -30,6 +30,10 @@ body {
         .ui-dialog .ui-dialog-content .code {
             margin: 3px 5px;
         }
+        
+            .ui-dialog .ui-dialog-content form.save-shred {
+                display: none;
+            }
 
             .ui-dialog .ui-dialog-content .code textarea {
                 border: 0;  
@@ -39,3 +43,62 @@ body {
                 height: 100px;
                 font: 12px menlo, monospace;
             }
+            
+ul.options {
+    list-style: none;
+    margin: 10px 10px 7px;
+    padding: 0;
+}   
+
+    ul.options li {
+        float: left;
+    }
+    
+        ul.options li + li {
+            margin-left: 15px;
+        }
+            
+form.file-form {
+    background: #ccc;
+    -webkit-border-radius: 3px;
+    margin: 2px 1px;
+}
+
+    form.file-form label {
+        margin: 5px 5px 5px 10px;
+        text-shadow: white 0px 1px;
+    }
+
+    form.file-form input[type="text"] {
+        margin: 5px;
+        background: white;
+        border: none;
+        padding: 3px;
+        width: 147px;
+    }
+    
+    form.file-form input[type="file"] {
+        margin: 10px;
+        width: 250px;
+    }
+  
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}

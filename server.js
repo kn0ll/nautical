@@ -1,7 +1,8 @@
 var Connect = require('connect'),
     Jade = require('jade'),
     Socket = require('socket.io-connect').socketIO,
-    Chuck = require('./lib/chuck');
+    Chuck = require('./lib/chuck'),
+    Fs = require('fs');
 
 var server = Connect.createServer(
     
@@ -12,11 +13,15 @@ var server = Connect.createServer(
             var d = JSON.parse(data);
             
             if(d.method == 'shred::play') {
-                Chuck.play('/tmp/test.ck', d.data.content);
+                Chuck.play(d.data.path);
             }
             
             else if(d.method == 'shred::stop') {
                 Chuck.stop();
+            }
+            
+            else if(d.method == 'shred::save') {
+                Fs.writeFile(d.data.path, d.data.content);
             }
             
         });

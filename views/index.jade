@@ -18,24 +18,21 @@ html
 
     script#shred-view(type: 'text/template')
       .shred(title: '{{name}}')
-        ul.options
+        form.file-form.save-shred(title: 'Save Shred')
+          label(for: 'path') Location
+          input(type: 'text', name:'path')
+        ul.options.clearfix
           li
-            a.save(href: '#') Save Shred
+            a.save(href: '#') Save
           li
-            a.play(href: '#') Play Shred
+            a.play(href: '#') Play
           li
-            a.stop(href: '#') Stop Shred
+            a.stop(href: '#') Stop
         .code
           textarea.content {{content}}
 
-    script#save-shred(type: 'text/template')
-      form(title: 'Save Shred')
-        label(for: 'path') Location
-        input(type: 'file', name:'path')
-
     script#open-shred(type: 'text/template')
-      form(title: 'Open Shred')
-        label(for: 'path') Location
+      form.file-form(title: 'Open Shred')
         input(type: 'file', name:'path')
 
     script(type: 'text/javascript', src: '/webroot/js/lib/json/json2.js')

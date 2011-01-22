@@ -1,9 +1,6 @@
 [submodule "static/webroot/js/lib/Socket.IO"]
 	path = static/webroot/js/lib/Socket.IO
 	url = https://github.com/LearnBoost/Socket.IO.git
-[submodule "static/webroot/js/lib/backbone"]
-	path = static/webroot/js/lib/backbone
-	url = https://github.com/documentcloud/backbone.git
 [submodule "static/webroot/js/lib/json"]
 	path = static/webroot/js/lib/json
 	url = https://github.com/douglascrockford/JSON-js.git
@@ -13,3 +10,6 @@
 [submodule "static/webroot/js/lib/underscore"]
 	path = static/webroot/js/lib/underscore
 	url = https://github.com/documentcloud/underscore.git
+[submodule "static/webroot/js/lib/backbone"]
+	path = static/webroot/js/lib/backbone
+	url = https://github.com/documentcloud/backbone.git
