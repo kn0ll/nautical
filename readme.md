@@ -2,4 +2,4 @@
     npm install connect
     npm install socket.io-connect
 
-    http://chuck.cs.princeton.edu/release/
+also install [ChucK](http://chuck.cs.princeton.edu/release/)
