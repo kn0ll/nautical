@@ -1,0 +1,50 @@
+!!! 5
+html
+
+  head
+
+    title naudicle
+    link(rel: 'stylesheet', href: '/webroot/css/lib/reset.css', type: 'text/css', media: 'screen, projection')
+    link(rel: 'stylesheet', href: '/webroot/css/lib/jquery-ui/ui-lightness/jquery-ui-1.8.8.custom.css', type: 'text/css', media: 'screen, projection')
+    link(rel: 'stylesheet', href: '/webroot/css/style.css', type: 'text/css', media: 'screen, projection')
+    script(type: 'text/javascript', src: '/webroot/js/lib/Socket.IO/socket.io.js')
+
+  body
+
+    ul#menu
+      li
+        a.create(href: '#') New Shred
+      li
+        a.open(href: '#') Open Shred
+
+    script#shred-view(type: 'text/template')
+      .shred(title: '{{name}}')
+        ul.options
+          li
+            a.save(href: '#') Save Shred
+          li
+            a.play(href: '#') Play Shred
+          li
+            a.stop(href: '#') Stop Shred
+        .code
+          textarea.content {{content}}
+
+    script#save-shred(type: 'text/template')
+      form(title: 'Save Shred')
+        label(for: 'path') Location
+        input(type: 'file', name:'path')
+
+    script#open-shred(type: 'text/template')
+      form(title: 'Open Shred')
+        label(for: 'path') Location
+        input(type: 'file', name:'path')
+
+    script(type: 'text/javascript', src: '/webroot/js/lib/json/json2.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/CodeMirror/js/codemirror.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/mustache/mustache.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/jquery.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/jquery-ui.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/underscore/underscore.js')
+    script(type: 'text/javascript', src: '/webroot/js/lib/backbone/backbone.js')
+    script(type: 'text/javascript', src: '/webroot/js/websocket.js')
+    script(type: 'text/javascript', src: '/webroot/js/brain.js')
