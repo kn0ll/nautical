@@ -1,6 +1,6 @@
 var Connect = require('connect'),
     Jade = require('jade'),
-    Socket = require('./lib/Socket.IO-connect/socketIO').socketIO,
+    Socket = require('socket.io-connect').socketIO,
     Chuck = require('./lib/chuck');
 
 var server = Connect.createServer(
@@ -12,7 +12,7 @@ var server = Connect.createServer(
             var d = JSON.parse(data);
             
             if(d.method == 'shred::play') {
-                Chuck.play('/Users/Nic/Desktop/lol.ck', d.data.content);
+                Chuck.play('/tmp/test.ck', d.data.content);
             }
             
             else if(d.method == 'shred::stop') {
