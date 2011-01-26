@@ -11,37 +11,45 @@ var server = Connect.createServer(
         client.on('message', function(data) {
             
             var d = JSON.parse(data),
-                shred = d.data
+                msg = d.data
             
-            if(d.method == 'shred::play')
-                Chuck.play(shred.path)
+            // shred::play accepts an
+            // array of shreds to be played
+            if(d.method == 'shred::play') {
+                var to_play = [];
+                // build an array of path names
+                // from the given shreds
+                for(var i in msg)
+                    to_play.push(msg[i].path)
+                Chuck.play(to_play)
             
-            else if(d.method == 'shred::stop')
-                Chuck.stop(shred.path)
+            // stop all playing shreds
+            } else if(d.method == 'shred::stop')
+                // stop playback
+                Chuck.stop()
             
-            else if(d.method == 'shred::save') {
-                console.log(shred)
-                Fs.writeFile(shred.path, shred.contents? shred.contents: '', function() {
-                    client.send(JSON.stringify({
-                        method: 'Shreds.update',
-                        data: {
-                            path: shred.path,
-                            contents: shred.contents
-                        }
-                    })) 
-                });
+            // shred::save accepts an
+            // array of shreds to be saved
+            else if(d.method == 'shred::save')
+                // for each shred
+                for(var i in msg)
+                    // write the shred to a file
+                    Fs.writeFile(msg[i].path, msg[i].contents? msg[i].contents: '')
             
-            } else if(d.method == 'shred::open') {
-                console.log(shred)
-                Fs.readFile(shred.path, 'utf8', function (err, shred_contents) {
-                    client.send(JSON.stringify({
-                        method: 'Shreds.update',
-                        data: {
-                            path: shred.path,
-                            contents: shred_contents
-                        }
-                    }))
-                })
+            // shred::save accepts an
+            // array of shreds to be saved
+            else if(d.method == 'shred::open') {
+                // for each shred
+                for(var i in msg)
+                    // read the file
+                    Fs.readFile(msg[i].path, 'utf8', function (err, shred_contents) {
+                        // update the model and tell the client
+                        msg[i].contents = shred_contents
+                        client.send(JSON.stringify({
+                            method: 'Shreds.update',
+                            data: msg[i]
+                        }))
+                    })
             }
             
         })

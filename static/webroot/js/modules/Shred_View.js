@@ -34,7 +34,7 @@ $(function() {
                 $save_form.hide()
                 Socket.send({
                     method: 'shred::save',
-                    data: model
+                    data: [model]
                 })
             }
             return false
@@ -44,15 +44,14 @@ $(function() {
             var model = this.model
             Socket.send({
                 method: 'shred::play',
-                data: model
+                data: [model]
             })
         },
         
         stop: function() {
             var model = this.model
             Socket.send({
-                method: 'shred::stop',
-                data: model
+                method: 'shred::stop'
             })
         },
         

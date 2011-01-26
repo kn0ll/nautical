@@ -3,7 +3,7 @@ $(function() {
     window.Shred_List = Backbone.Collection.extend({
       
         model: Shred,
-        
+
         update: function(shred) {
             Shreds.map(function(map_shred) {
                 if(map_shred.get('path') == shred.path)

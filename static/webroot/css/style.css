@@ -3,9 +3,28 @@ body {
 }
 
 #shred-view,
-#open-shred {
+#open-shred,
+#shred-queue {
     display: none;
 }
+
+#shred-queue {
+    
+}
+
+    #shred-queue table {
+        width: 100%;
+    }
+
+        #shred-queue td {
+            padding: 3px;
+            background: #fff;
+        }
+
+            #shred-queue td.name {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
 
 .ui-dialog {
     width: auto !important;
@@ -40,7 +59,7 @@ body {
                 border: 0;  
                 margin: 0;
                 padding: 10px;
-                width: 200px;
+                width: 287px;
                 height: 100px;
                 font: 12px menlo, monospace;
             }
@@ -69,30 +88,34 @@ ul#file-menu {
             ul#file-menu li a.create { background-image: url(/webroot/img/menu/create.png); }
             ul#file-menu li a.open { background-image: url(/webroot/img/menu/open.png); }
             
-.shred ul.options {
+ul.options {
     list-style: none;
     margin: 3px 10px 3px;
     padding: 0;
 }   
 
-    .shred ul.options li {
+    ul.options li {
         float: left;
     }
     
-        .shred ul.options li + li {
-            margin-left: 10px;
+        ul.options li + li {
+            margin-left: 15px;
         }
         
-        .shred ul.options li a {
+        ul.options li a {
             display: block;
-            width: 32px;
             height: 32px;
             text-indent: -9999px;
+            background-repeat: no-repeat;
+            line-height: 35px;
+            text-indent: 35px;
         }
         
-            .shred ul.options li a.save { background-image: url(/webroot/img/controls/save.png); }
-            .shred ul.options li a.play { background-image: url(/webroot/img/controls/play.png); }
-            .shred ul.options li a.stop { background-image: url(/webroot/img/controls/stop.png); }
+            ul.options li a.save { background-image: url(/webroot/img/controls/save.png); }
+            ul.options li a.play { background-image: url(/webroot/img/controls/play.png); }
+            ul.options li a.stop { background-image: url(/webroot/img/controls/stop.png); }
+            ul.options li a.queue { background-image: url(/webroot/img/controls/queue.png); }
+            ul.options li a.play-all { background-image: url(/webroot/img/queue/play.png); }
             
 form.file-form {
     background: #ccc;

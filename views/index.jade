@@ -19,32 +19,35 @@ html
       li
         a.open(href: '#', title: 'Open Shred') Open Shred
 
-
-    script#shred-view(type: 'text/template')
-
-      .shred(title: '{{path}}')
-
-        form.file-form.save-shred(title: 'Save Shred')
-          label(for: 'path') Location
-          input(type: 'text', name:'path', value:'{{path}}')
-
-        ul.options.clearfix
-          li
-            a.save(href: '#', title: 'Save Shred') Save Shred
-          li
-            a.play(href: '#', title: 'Play Shred') Play Shred
-          li
-            a.stop(href: '#', title: 'Stop Shred') Stop Shred
-
-        .code
-          textarea.content {{content}}
-
-
     #open-shred(title: 'Open Shred')
-
       form.file-form.open-shred(title: 'Open Shred')
         label Path
         input(type: 'text', name:'path')
+
+    #shred-queue(title: 'Shred Queue')
+      ul.options.clearfix
+        li
+          a.play-all(href: '#', title: 'Play Selected') Play Selected
+        li
+          a.stop(href: '#', title: 'Stop All') Stop All
+      table
+        tbody
+
+    script#shred-view(type: 'text/template')
+      .shred(title: '{{path}}')
+        form.file-form.save-shred(title: 'Save Shred')
+          label(for: 'path') Location
+          input(type: 'text', name:'path', value:'{{path}}')
+        ul.options.clearfix
+          li
+            a.save(href: '#', title: 'Save Shred') Save
+          li
+            a.play(href: '#', title: 'Play Shred') Play
+          li
+            a.stop(href: '#', title: 'Stop Shred') Stop
+
+        .code
+          textarea.content {{content}}
 
 
     script(type: 'text/javascript', src: '/webroot/js/lib/mustache/mustache.js')

@@ -1,7 +1,8 @@
 $(function() {
    
     window.Shred = Backbone.Model.extend({
-      
+        
+        id: null,
         name: null,
         content: null,
         view: null,
@@ -15,23 +16,23 @@ $(function() {
                 model: model
             }).render()
             
+            // add to the playlist view
+            Queue.add(model)
+            
             // if they pass path in
             // we load it
             if(data.path)
-                Socket.send({
-                    method: 'shred::open',
-                    data: model
-                })
+                this.load()
 
         },
         
         load: function() {
-            var model = this.model
+            var model = this
             Socket.send({
                 method: 'shred::open',
-                data: model
+                data: [model]
             })
-        },
+        }
       
     })
    

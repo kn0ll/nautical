@@ -25,6 +25,8 @@ var Require = (function() {
                 url: script,
                 dataType: 'script',
                 cache: true,
+                // todo: these should not be sequential
+                // should all fire at once
                 success: function() {
                     if(queue.length)
                         require(queue.shift(), callback)
