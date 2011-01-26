@@ -4,24 +4,24 @@ body {
 
 #shred-view,
 #open-shred,
-#shred-queue {
+#shred-playlist {
     display: none;
 }
 
-#shred-queue {
+#shred-playlist {
     
 }
 
-    #shred-queue table {
+    #shred-playlist table {
         width: 100%;
     }
 
-        #shred-queue td {
+        #shred-playlist td {
             padding: 3px;
             background: #fff;
         }
 
-            #shred-queue td.name {
+            #shred-playlist td.name {
                 padding-left: 10px;
                 padding-right: 10px;
             }

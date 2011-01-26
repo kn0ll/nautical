@@ -4,10 +4,10 @@ $(function() {
     // queue <table> by model cid
     var rows = {};
    
-    window.Shred_Queue = Backbone.View.extend({
+    window.Shred_Playlist = Backbone.View.extend({
       
-        el: $('#shred-queue'),
-        table: $('tbody', $('#shred-queue')),
+        el: $('#shred-playlist'),
+        table: $('tbody', $('#shred-playlist')),
         
         events: {
             'click .play-all': 'play',

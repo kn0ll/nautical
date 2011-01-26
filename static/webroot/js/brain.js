@@ -5,12 +5,12 @@ $(function() {
         '/webroot/js/modules/Shred.js',
         '/webroot/js/modules/Shred_List.js',
         '/webroot/js/modules/Shred_View.js',
-        '/webroot/js/modules/Shred_Queue.js'
+        '/webroot/js/modules/Shred_Playlist.js'
     ], function() {
         
         // init
         window.Shreds = new Shred_List
-        window.Queue = new Shred_Queue
+        window.Playlist = new Shred_Playlist
         
         new File_Menu
         

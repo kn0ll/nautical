@@ -17,7 +17,7 @@ $(function() {
             }).render()
             
             // add to the playlist view
-            Queue.add(model)
+            Playlist.add(model)
             
             // if they pass path in
             // we load it
